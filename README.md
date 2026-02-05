@@ -1,39 +1,36 @@
-# Sports vs Politics Text Classification
+# Problem 4 – Sports vs Politics Text Classification
 
-## Project Overview
-This project focuses on building a machine-learning-based text classification system that automatically categorizes news documents into **Sports** or **Politics** domains. The objective is to study how different feature representations and classification algorithms influence performance on a binary text classification task.
-
-The project compares multiple **feature extraction techniques** and **machine learning models**, followed by quantitative evaluation using standard performance metrics.
+## Overview
+This project implements a machine learning–based text classification system that automatically categorizes news documents into **Sports** or **Politics**.  
+Multiple feature representation techniques and machine learning models were evaluated and compared quantitatively.
 
 ---
 
 ## Dataset
-A custom dataset was created for this task consisting of short news-style paragraphs collected and paraphrased from common sports and political themes.
+A custom dataset was prepared consisting of short news-style paragraphs:
 
-- Total documents: **60**
-- Classes:
-  - **Sports** (30 documents)
-  - **Politics** (30 documents)
-- Each document contains **2–4 sentences**
-- Dataset files:
+- **Classes**:
+  - Sports
+  - Politics
+- **Documents**: 60 total (30 per class)
+- **Files**:
   - `data/sports.txt`
   - `data/politics.txt`
-
-Each line in the file represents one document.
+- Each line in the file represents one document.
 
 ---
 
 ## Feature Representations
-The following text representation techniques were evaluated:
+The following feature extraction methods were evaluated:
 
 - Bag of Words (BoW)
 - TF-IDF (Unigrams)
-- TF-IDF with Bigrams
+- TF-IDF + Bigrams (n-grams)
 
 ---
 
 ## Machine Learning Models
-Three classification algorithms were implemented and compared:
+The following models were implemented and compared:
 
 - Multinomial Naive Bayes
 - Logistic Regression
@@ -41,18 +38,18 @@ Three classification algorithms were implemented and compared:
 
 ---
 
-## Experimental Setup
-- Dataset split: **80% training / 20% testing**
-- Evaluation metrics:
-  - Accuracy
-  - Precision
-  - Recall
-  - F1-score
+## Experimental Results
 
----
+| Model | Feature Representation | Accuracy | Precision | Recall | F1 Score |
+|------|------------------------|----------|-----------|--------|----------|
+| Naive Bayes | BoW | 1.00 | 1.00 | 1.00 | 1.00 |
+| Logistic Regression | BoW | 0.92 | 0.93 | 0.92 | 0.91 |
+| SVM | BoW | 1.00 | 1.00 | 1.00 | 1.00 |
+| Naive Bayes | TF-IDF | 1.00 | 1.00 | 1.00 | 1.00 |
+| Logistic Regression | TF-IDF | 0.92 | 0.93 | 0.92 | 0.92 |
+| SVM | TF-IDF | 1.00 | 1.00 | 1.00 | 1.00 |
+| Naive Bayes | TF-IDF + Bigrams | 0.92 | 0.93 | 0.92 | 0.92 |
+| Logistic Regression | TF-IDF + Bigrams | 0.83 | 0.89 | 0.83 | 0.84 |
+| SVM | TF-IDF + Bigrams | 0.92 | 0.93 | 0.92 | 0.90 |
 
-## Results Summary
-The experiments show that both **Naive Bayes** and **SVM** perform strongly across most feature representations, while **Logistic Regression** shows slightly lower performance when feature dimensionality increases (e.g., bigrams).
-
-A visualization comparing accuracy across models and feature representations is available in:
-
+A visual comparison of model accuracy is available in results/accuracy_comparison.png
