@@ -114,9 +114,10 @@ if __name__ == "__main__":
 
     plt.xlabel("Models")
     plt.ylabel("Accuracy")
-    plt.title("Accuracy Comparison Across Models and Feature Representations")
+    plt.title("Accuracy Comparison Across Models")
     plt.xticks(x, model_names)
-    plt.legend()
+    plt.legend(loc="upper left", bbox_to_anchor=(1.02, 1))
+    plt.tight_layout()
 
     results_dir = os.path.join(BASE_DIR, "results")
     os.makedirs(results_dir, exist_ok=True)
