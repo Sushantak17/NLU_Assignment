@@ -7,7 +7,8 @@ Multiple feature representation techniques and machine learning models were eval
 ---
 
 ## Dataset
-A custom dataset was prepared consisting of short news-style paragraphs:
+The dataset used in this project was derived from the publicly available **Kaggle News Category Dataset**.  
+Articles belonging to the **Sports** and **Politics** categories were filtered using a preprocessing script and converted into plain text format for experimentation.
 
 - **Classes**:
   - Sports
@@ -17,6 +18,9 @@ A custom dataset was prepared consisting of short news-style paragraphs:
   - `data/sports.txt`
   - `data/politics.txt`
 - Each line in the file represents one document.
+- The preprocessing script used for dataset preparation is:
+  - `prepare_dataset.py`
+
 
 ---
 
