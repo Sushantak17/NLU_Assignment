@@ -10,17 +10,20 @@ from sklearn.svm import LinearSVC
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 
 
-# Loading documents from sports and politics files
+# Loading documents from sports and politics text files, each line in the file corresponds to one document
+
 def load_data(sports_file, politics_file):
     texts = []
     labels = []
 
+    # Reading sports documents
     with open(sports_file, "r", encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 texts.append(line.strip())
                 labels.append("sport")
 
+    # Reading politics documents
     with open(politics_file, "r", encoding="utf-8") as f:
         for line in f:
             if line.strip():
@@ -30,7 +33,8 @@ def load_data(sports_file, politics_file):
     return texts, labels
 
 
-# ---------------- FEATURE REPRESENTATIONS ----------------
+# Defining different feature representations
+
 def get_vectorizers():
     return {
         "BoW": CountVectorizer(),
@@ -39,7 +43,8 @@ def get_vectorizers():
     }
 
 
-# ---------------- MODELS ----------------
+# Defining classification models
+
 def get_models():
     return {
         "Naive Bayes": MultinomialNB(),
@@ -48,7 +53,8 @@ def get_models():
     }
 
 
-# ---------------- MODEL EVALUATION ----------------
+# Training model and compute evaluation metrics
+
 def evaluate_model(model, X_train, X_test, y_train, y_test):
     model.fit(X_train, y_train)
     preds = model.predict(X_test)
@@ -61,6 +67,8 @@ def evaluate_model(model, X_train, X_test, y_train, y_test):
     return accuracy, precision, recall, f1
 
 
+# Main execution
+
 if __name__ == "__main__":
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -70,7 +78,7 @@ if __name__ == "__main__":
     texts, labels = load_data(sports_path, politics_path)
 
     X_train, X_test, y_train, y_test = train_test_split(
-        texts, labels, test_size=0.2, random_state=42
+        texts, labels, test_size=0.2, random_state=42, stratify=labels
     )
 
     vectorizers = get_vectorizers()
@@ -80,6 +88,7 @@ if __name__ == "__main__":
 
     print("\n=== Experimental Results ===\n")
 
+    # Training and evaluating for each feature representation
     for vec_name, vectorizer in vectorizers.items():
         print(f"\nFeature Representation: {vec_name}")
 
@@ -101,7 +110,8 @@ if __name__ == "__main__":
 
             accuracy_results[vec_name].append(acc)
 
-    # ---------------- PLOTTING ----------------
+    # Plotting accuracy comparison
+
     model_names = list(models.keys())
     x = np.arange(len(model_names))
     width = 0.25

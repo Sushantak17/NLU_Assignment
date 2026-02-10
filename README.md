@@ -12,7 +12,7 @@ A custom dataset was prepared consisting of short news-style paragraphs:
 - **Classes**:
   - Sports
   - Politics
-- **Documents**: 60 total (30 per class)
+- **Documents**: Approximately 2000 total (about 1000 per class)
 - **Files**:
   - `data/sports.txt`
   - `data/politics.txt`
@@ -42,14 +42,15 @@ The following models were implemented and compared:
 
 | Model | Feature Representation | Accuracy | Precision | Recall | F1 Score |
 |------|------------------------|----------|-----------|--------|----------|
-| Naive Bayes | BoW | 1.00 | 1.00 | 1.00 | 1.00 |
-| Logistic Regression | BoW | 0.92 | 0.93 | 0.92 | 0.91 |
-| SVM | BoW | 1.00 | 1.00 | 1.00 | 1.00 |
-| Naive Bayes | TF-IDF | 1.00 | 1.00 | 1.00 | 1.00 |
-| Logistic Regression | TF-IDF | 0.92 | 0.93 | 0.92 | 0.92 |
-| SVM | TF-IDF | 1.00 | 1.00 | 1.00 | 1.00 |
-| Naive Bayes | TF-IDF + Bigrams | 0.92 | 0.93 | 0.92 | 0.92 |
-| Logistic Regression | TF-IDF + Bigrams | 0.83 | 0.89 | 0.83 | 0.84 |
-| SVM | TF-IDF + Bigrams | 0.92 | 0.93 | 0.92 | 0.90 |
+| Naive Bayes | BoW | 0.96 | 0.96 | 0.96 | 0.96 |
+| Logistic Regression | BoW | 0.94 | 0.94 | 0.94 | 0.94 |
+| SVM | BoW | 0.94 | 0.95 | 0.94 | 0.94 |
+| Naive Bayes | TF-IDF | 0.95 | 0.96 | 0.95 | 0.95 |
+| Logistic Regression | TF-IDF | 0.95 | 0.95 | 0.95 | 0.95 |
+| SVM | TF-IDF | 0.96 | 0.96 | 0.96 | 0.96 |
+| Naive Bayes | TF-IDF + Bigrams | 0.95 | 0.96 | 0.95 | 0.95 |
+| Logistic Regression | TF-IDF + Bigrams | 0.95 | 0.96 | 0.95 | 0.95 |
+| SVM | TF-IDF + Bigrams | 0.96 | 0.96 | 0.96 | 0.96 |
+
 
 A visual comparison of model accuracy is available in results/accuracy_comparison.png
